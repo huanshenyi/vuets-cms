@@ -19,8 +19,7 @@
                             v-model="ruleForm.username"
                             placeholder="ユーザーネーム"
                             auto-complete="off">
-                     <!--時間あれば、ここにアイコン入れよう-->
-                     <!--例 <i slot="prefix" class="el-input__icon el-icon-search"></i>-->
+                        <i slot="prefix" class="el-icon-user"></i>
                     </el-input>
                 </el-form-item>
                 <!--password-->
@@ -30,6 +29,7 @@
                             v-model="ruleForm.pwd"
                             placeholder="パスワード"
                             auto-complete="off">
+                        <i slot="prefix" class="el-icon-lock"></i>
                         <!--時間あれば、ここにアイコン入れよう-->
                         <!--例 <i slot="prefix" class="el-input__icon el-icon-search"></i>-->
                     </el-input>
