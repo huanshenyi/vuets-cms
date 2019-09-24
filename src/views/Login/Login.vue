@@ -37,7 +37,7 @@
                 <!--ログインボタン-->
                 <el-form-item>
                     <!--click.native.preventデフォルト事件を消す-->
-                    <el-button type="primary" style="width: 100%;" @click.native.prevent="handleSubmit">
+                    <el-button :loading="isLogin" type="primary" style="width: 100%;" @click.native.prevent="handleSubmit">
                         ログイン
                     </el-button>
                 </el-form-item>
@@ -61,6 +61,7 @@ import any = jasmine.any;
     }
 })
 export default class Login extends Vue{
+    @Provide() isLogin:boolean = false;
     @Provide() ruleForm:{
         username : String;
         pwd : String;
@@ -81,7 +82,16 @@ export default class Login extends Vue{
     handleSubmit():void{
         (this.$refs.ruleForm as any).validate((valid:boolean)=>{
             if(valid){
-                console.log("検証通過");
+                this.isLogin = true;
+                // console.log("検証通過");
+                (this as any).$axios.post("/api/users/login",this.ruleForm).then((res:any) => {
+                    this.isLogin = false;
+                    // console.log(res.data)
+                    //tokenを保存
+                    localStorage.setItem("tsToken", res.data.token);
+                }).catch(()=>{
+                    this.isLogin = false
+                })
             }
         })
     }
