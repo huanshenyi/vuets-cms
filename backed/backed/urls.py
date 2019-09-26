@@ -21,7 +21,7 @@ from django.conf.urls import include, url
 from rest_framework.authtoken import views
 from rest_framework_jwt.views import obtain_jwt_token
 from rest_framework.routers import DefaultRouter
-from users.views import UserView
+
 router = DefaultRouter()
 
 urlpatterns = [
@@ -29,7 +29,6 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls')),
     re_path(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
     url(r'^api-token-auth/', views.obtain_auth_token),
-    path("user_view/", UserView, ),
-    url(r'^jwt_auth/', obtain_jwt_token),
+    url(r'^login/', obtain_jwt_token),
     path('', include(router.urls)),
 ]
