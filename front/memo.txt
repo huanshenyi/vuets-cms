@@ -1,1 +1,3 @@
 npm i axios @type/axios --save
+npm i vuex-class --save
+npm install jwt-decode --save

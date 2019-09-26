@@ -53,6 +53,7 @@
 
 <script lang="ts">
 import {Component ,Vue, Provide} from "vue-property-decorator"
+import {State, Getter, Mutation, Action} from 'vuex-class'
 import LoginHeader from "./LoginHeader.vue"
 import any = jasmine.any;
 @Component({
@@ -61,6 +62,9 @@ import any = jasmine.any;
     }
 })
 export default class Login extends Vue{
+    //ユーザーデータを保存
+    @Action("setUser") setUser: any;
+
     @Provide() isLogin:boolean = false;
     @Provide() ruleForm:{
         username : String;
@@ -86,9 +90,10 @@ export default class Login extends Vue{
                 // console.log("検証通過");
                 (this as any).$axios.post("/api/users/login",this.ruleForm).then((res:any) => {
                     this.isLogin = false;
-                    // console.log(res.data)
                     //tokenを保存
                     localStorage.setItem("tsToken", res.data.token);
+                    // vuexに保存
+                    this.setUser(res.data.token);
                 }).catch(()=>{
                     this.isLogin = false
                 })
