@@ -94,6 +94,7 @@ export default class Login extends Vue{
                     localStorage.setItem("tsToken", res.data.token);
                     // vuexに保存
                     this.setUser(res.data.token);
+                    this.$router.push("/");
                 }).catch(()=>{
                     this.isLogin = false
                 })
