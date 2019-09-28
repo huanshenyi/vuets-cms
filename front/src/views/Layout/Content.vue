@@ -14,7 +14,7 @@
                 <el-breadcrumb class="breadcrumb" separator="/">
                     <el-breadcrumb-item>イベント管理</el-breadcrumb-item>
                     <el-breadcrumb-item>イベント管理1</el-breadcrumb-item>
-                    <el-breadcrumb-item>イベント管理2</el-breadcrumb-item>
+                    <el-breadcrumb-item>ホーム</el-breadcrumb-item>
                 </el-breadcrumb>
             </div>
             <!--内容-->

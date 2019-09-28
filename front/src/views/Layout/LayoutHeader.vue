@@ -11,7 +11,7 @@
                <el-dropdown @command="userCommand" class="system-user">
                    <span class="userinfo-inner">
                        <img :src="require('@/assets/'+getUser.key+'.jpg')" alt="">
-                       {{getUser.username}}
+                       {{ getUser.username }}
                    </span>
                    <el-dropdown-menu slot="dropdown">
                       <el-dropdown-item command="usercenter">マイページ</el-dropdown-item>
@@ -42,7 +42,7 @@ export default class layoutHeader extends Vue{
        }
     };
     created(){
-        console.log(this.getUser)
+        // console.log(this.getUser)
     };
 }
 </script>
