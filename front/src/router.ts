@@ -21,7 +21,6 @@ export const asyncRouterMap = [
     name: "dashboard",
     component: Layout,
     hidden: true,
-    meta: { title: "ホーム", icon: "el-icon-s-home" },
     redirect: "/home",
     children:[
       {
@@ -68,7 +67,6 @@ export const asyncRouterMap = [
     name: "userManage",
     component: Layout,
     hidden:true,
-    meta: {title: "ユーザー管理", icon: "el-icon-user-solid"},
     redirect: "/accountData",
     children:[
       {

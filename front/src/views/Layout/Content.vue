@@ -12,9 +12,13 @@
             <div class="top">
                 <i class="el-icon-s-unfold"></i>
                 <el-breadcrumb class="breadcrumb" separator="/">
-                    <el-breadcrumb-item>イベント管理</el-breadcrumb-item>
-                    <el-breadcrumb-item>イベント管理1</el-breadcrumb-item>
-                    <el-breadcrumb-item>ホーム</el-breadcrumb-item>
+                    <el-breadcrumb-item
+                            v-for="(item, index) in breadCrumbItems"
+                            :key="index"
+                            :to="{path:item.path}"
+                    >
+                        {{item.title}}
+                    </el-breadcrumb-item>
                 </el-breadcrumb>
             </div>
             <!--内容-->
@@ -32,6 +36,28 @@ import { Component,Vue,Provide, Watch } from "vue-property-decorator"
 })
 export default class Content extends Vue{
 @Provide() breadCrumbItems:any;//パンくずリスト
+@Watch("$route") handleRouteChange(to:any){
+    this.initBreadCrumbItems(to);
+}
+created(){
+  this.initBreadCrumbItems(this.$route);
+}
+initBreadCrumbItems(router:any):void{
+    console.log(router);
+    // ベースtitle
+    let breadCrumbItems:any = [{path:"/",title:"ホーム"}];
+    //親ルーターから子ルーターまでのtitle,pathをリストに保存
+    for(const index in router.matched){
+        if(router.matched[index].meta && router.matched[index].meta.title){
+            breadCrumbItems.push({
+                path:router.matched[index].path ? router.matched[index].path : "/",
+                title:router.matched[index].meta.title
+            })
+        }
+    }
+    this.breadCrumbItems = breadCrumbItems;
+    console.log(this.breadCrumbItems)
+}
 }
 </script>
 
