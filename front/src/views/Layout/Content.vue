@@ -26,12 +26,12 @@
 </template>
 
 <script lang="ts">
-import { Component,Vue } from "vue-property-decorator"
+import { Component,Vue,Provide, Watch } from "vue-property-decorator"
 @Component({
     components:{}
 })
 export default class Content extends Vue{
-
+@Provide() breadCrumbItems:any;//パンくずリスト
 }
 </script>
 
