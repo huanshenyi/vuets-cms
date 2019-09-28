@@ -42,11 +42,11 @@ created(){
 </script>
 
 <style scoped lang="scss">
-    .el-scrollbar {
+.el-scrollbar {
         height: 100%;
         border-right: 1px solid #e6e6e6;
         background: #fff;
-    .el-menu-slide {
+.el-menu-slide {
         border-right: none;
     i {
         margin-right: 5px;
@@ -54,6 +54,6 @@ created(){
         text-align: center;
         font-size: 18px;
     }
-    }
-    }
+  }
+}
 </style>
