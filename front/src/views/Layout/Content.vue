@@ -43,7 +43,7 @@ created(){
   this.initBreadCrumbItems(this.$route);
 }
 initBreadCrumbItems(router:any):void{
-    console.log(router);
+    //console.log(router);
     // ベースtitle
     let breadCrumbItems:any = [{path:"/",title:"ホーム"}];
     //親ルーターから子ルーターまでのtitle,pathをリストに保存
@@ -56,7 +56,7 @@ initBreadCrumbItems(router:any):void{
         }
     }
     this.breadCrumbItems = breadCrumbItems;
-    console.log(this.breadCrumbItems)
+   // console.log(this.breadCrumbItems)
 }
 }
 </script>

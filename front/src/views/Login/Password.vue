@@ -81,7 +81,7 @@ export default class Password extends Vue{
                 // リクエスト
                 (this as any).$axios.post("/api/users/findPwd", this.ruleForm).then((res:any)=>{
                     this.loading = false;
-                    console.log(res.data);
+                    //console.log(res.data);
                     this.$message({
                         //message:res.data.msg,
                         message:"メール発送されました",
@@ -89,7 +89,7 @@ export default class Password extends Vue{
                     });
                     this.$router.push("/login");
                 }).catch((err:any)=>{
-                    console.log(err);
+                    //console.log(err);
                     this.loading = false
                 })
             }

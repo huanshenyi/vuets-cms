@@ -38,7 +38,7 @@ export default class layoutHeader extends Vue{
            this.$router.replace("/login")
        }
        if(command == "usercenter"){
-           console.log("マイページ")
+           this.$router.push('/user');
        }
     };
     created(){
