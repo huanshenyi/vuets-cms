@@ -3,7 +3,7 @@
         <div class="search-box">
             <el-input size="small" v-model="searchVal" placeholder="検索したいApiを入力してください"></el-input>
             <el-button size="small" type="primary">
-                <i class="el-icon-search">検索</i>
+                <i class="el-icon-search" @click="handleSearch">検索</i>
             </el-button>
         </div>
         <el-table :data="tableData" border style="width: 100%" :height="tHeight" class="table-box">
@@ -21,11 +21,12 @@
         </el-table>
         <div class="pages" ref="page-box">
             <el-pagination
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
                     :page-sizes="[5,10,20]"
                     :page-size="size"
                     layout="total,sizes,prev,pager,next,jumper"
                     :total="total">
-
             </el-pagination>
         </div>
     </div>
@@ -51,6 +52,30 @@ export default class TableData extends Vue {
             console.log(res.data);
             this.tableData = [{_id:1,title:"apitest",type:'test',level:"test",data:"2019-06-13"},{id:1,title:"apitest",type:'test',level:"test",data:"2019-06-13"}];
             this.total = res.data.data.total;
+        })
+    }
+    handleSizeChange(val:number):void{
+        this.size = val;
+        this.page = 1;
+        this.loadData();
+    }
+    handleCurrentChange(val:number):void{
+        this.page = val;
+        console.log(this.page);
+        this.loadData();
+    }
+    handleSearch():void{
+        //
+        console.log("");
+        this.page = 1;
+        this.searchVal ? this.loadSearchData() : this.loadData();
+    }
+    loadSearchData(){
+        //search data をlord
+        (this as any).$axios(`/api/profiles/search/${this.searchVal}/${this.page}/${this.size}`).then((res:any)=>{
+            console.log(res.data);
+            this.tableData = res.data.datas.list;
+            this.total = res.data.datas.total;
         })
     }
 }
