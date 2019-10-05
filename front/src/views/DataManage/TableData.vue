@@ -13,8 +13,8 @@
             <el-table-column label="cookie" prop="type"></el-table-column>
             <el-table-column label="新規時間" prop="data" width="160"></el-table-column>
             <el-table-column label="操作">
-                <template>
-                    <el-button size="mini">編集</el-button>
+                <template slot-scope="scope">
+                    <el-button size="mini" @click="handleEdit(scope.$index,scope.row)">編集</el-button>
                     <el-button size="mini" type="danger">削除</el-button>
                 </template>
             </el-table-column>
@@ -29,13 +29,19 @@
                     :total="total">
             </el-pagination>
         </div>
+        <EditDialog
+                :dialogVisible="dialogVisible"
+                :form="formData">
+        </EditDialog>
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Provide } from "vue-property-decorator"
+import EditDialog from "./EditDialog.vue"
+
 @Component({
-   components:{}
+   components:{ EditDialog }
 })
 export default class TableData extends Vue {
 @Provide() searchVal:string = ""; //検索input value
@@ -44,13 +50,27 @@ export default class TableData extends Vue {
 @Provide() page: number = 1; //現在のページ
 @Provide() size: number = 5; //リクエストデータの数
 @Provide() total: number = 0; //合計データ数
+@Provide() dialogVisible:Boolean = false; //編集画面見せるか
+@Provide() formData:object = {
+  title: "",
+  type: "",
+  level: "",
+  count: "",
+  date: ""
+};
+    handleEdit(index:number,row:any){
+        console.log(index, row);
+        this.formData = row;
+        this.dialogVisible = true;
+}
     created(){
         this.loadData();
     }
     loadData(){
         (this as any).$axios(`/api/profiles/loadMore/${this.page}/${this.size}`).then((res:any)=>{
             console.log(res.data);
-            this.tableData = [{_id:1,title:"apitest",type:'test',level:"test",data:"2019-06-13"},{id:1,title:"apitest",type:'test',level:"test",data:"2019-06-13"}];
+            this.tableData = [{_id:1,title:"apitest",type:'test',level:"test",data:"2019-06-13"},
+                {id:1,title:"apitest",type:'test',level:"test",data:"2019-06-13"}];
             this.total = res.data.data.total;
         })
     }
