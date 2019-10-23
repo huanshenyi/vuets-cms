@@ -1,5 +1,5 @@
 <template>
-     <el-dialog title="内容編集" :visible.sync="dialogVisible">
+     <el-dialog :close-on-click-modal="false" :show-close="false" title="内容編集" :visible.sync="dialogVisible">
        <el-form ref="ruleForm" v-model="form" label-width="100px" size="small" class="form-box">
            <el-form-item label="Api名称" prop="title">
                <el-input v-model="form.title" placeholder="apiの名称を入力してください"></el-input>
@@ -33,7 +33,7 @@
            </el-form-item>
        </el-form>
          <span slot="footer" class="dialog-footer">
-             <el-button size="small">閉じる</el-button>
+             <el-button @click="$emit('closeDialog')" size="small">閉じる</el-button>
              <el-button type="primary" size="small">確定</el-button>
          </span>
      </el-dialog>
@@ -56,8 +56,10 @@ export default class EditDialog extends Vue{
       date:string,
       _id:string
   };
+  @Provide() rules:any = {
+    title:[{required:true,message:"タイトルを入力してください",trigger:"blue"}],
+  };
   created(){
-      console.log(this.dialogVisible,this.form);
   }
 }
 </script>

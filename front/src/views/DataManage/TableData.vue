@@ -31,7 +31,9 @@
         </div>
         <EditDialog
                 :dialogVisible="dialogVisible"
-                :form="formData">
+                :form="formData"
+                @closeDialog="closeDialog"
+        >
         </EditDialog>
     </div>
 </template>
@@ -68,7 +70,6 @@ export default class TableData extends Vue {
     }
     loadData(){
         (this as any).$axios(`/api/profiles/loadMore/${this.page}/${this.size}`).then((res:any)=>{
-            console.log(res.data);
             this.tableData = [{_id:1,title:"apitest",type:'test',count:123,level:"test",data:"2019-06-13"},
                 {id:1,title:"apitest",type:'test',count:123,level:"test",data:"2019-06-13"}];
             this.total = res.data.data.total;
@@ -97,6 +98,9 @@ export default class TableData extends Vue {
             this.tableData = res.data.datas.list;
             this.total = res.data.datas.total;
         })
+    }
+    closeDialog(){
+        this.dialogVisible = false;
     }
 }
 </script>
