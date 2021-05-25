@@ -671,6 +671,10 @@
   version "23.3.14"
   resolved "https://registry.npm.taobao.org/@types/jest/download/@types/jest-23.3.14.tgz#37daaf78069e7948520474c87b80092ea912520a"
 
+"@types/jwt-decode@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@types/jwt-decode/-/jwt-decode-2.2.1.tgz#afdf5c527fcfccbd4009b5fd02d1e18241f2d2f2"
+
 "@types/minimatch@*":
   version "3.0.3"
   resolved "https://registry.npm.taobao.org/@types/minimatch/download/@types/minimatch-3.0.3.tgz?cache=0&sync_timestamp=1567533638812&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fminimatch%2Fdownload%2F%40types%2Fminimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -1731,12 +1735,14 @@ browserify-zlib@^0.2.0:
     pako "~1.0.5"
 
 browserslist@^4.0.0, browserslist@^4.3.4, browserslist@^4.5.4, browserslist@^4.6.3:
-  version "4.7.0"
-  resolved "https://registry.npm.taobao.org/browserslist/download/browserslist-4.7.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fbrowserslist%2Fdownload%2Fbrowserslist-4.7.0.tgz#9ee89225ffc07db03409f2fee524dc8227458a17"
+  version "4.16.6"
+  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.16.6.tgz#d7901277a5a88e554ed305b183ec9b0c08f66fa2"
   dependencies:
-    caniuse-lite "^1.0.30000989"
-    electron-to-chromium "^1.3.247"
-    node-releases "^1.1.29"
+    caniuse-lite "^1.0.30001219"
+    colorette "^1.2.2"
+    electron-to-chromium "^1.3.723"
+    escalade "^3.1.1"
+    node-releases "^1.1.71"
 
 bs-logger@0.x:
   version "0.2.6"
@@ -1907,9 +1913,9 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000980, caniuse-lite@^1.0.30000989:
-  version "1.0.30000989"
-  resolved "https://registry.npm.taobao.org/caniuse-lite/download/caniuse-lite-1.0.30000989.tgz#b9193e293ccf7e4426c5245134b8f2a56c0ac4b9"
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000980, caniuse-lite@^1.0.30001219:
+  version "1.0.30001228"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001228.tgz#bfdc5942cd3326fa51ee0b42fbef4da9d492a7fa"
 
 capture-exit@^1.2.0:
   version "1.2.0"
@@ -2118,6 +2124,10 @@ color@^3.0.0:
   dependencies:
     color-convert "^1.9.1"
     color-string "^1.5.2"
+
+colorette@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/colorette/-/colorette-1.2.2.tgz#cbcc79d5e99caea2dbf10eb3a26fd8b3e6acfa94"
 
 combined-stream@^1.0.6, combined-stream@~1.0.6:
   version "1.0.8"
@@ -2871,9 +2881,9 @@ ejs@^2.6.1:
   version "2.7.1"
   resolved "https://registry.npm.taobao.org/ejs/download/ejs-2.7.1.tgz#5b5ab57f718b79d4aca9254457afecd36fa80228"
 
-electron-to-chromium@^1.3.247:
-  version "1.3.264"
-  resolved "https://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.264.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.264.tgz#ed837f44524d0601a7b2b7b6efd86e35753d0e27"
+electron-to-chromium@^1.3.723:
+  version "1.3.738"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.738.tgz#aec24b091c82acbfabbdcce08076a703941d17ca"
 
 element-ui@^2.12.0:
   version "2.12.0"
@@ -2972,6 +2982,10 @@ es-to-primitive@^1.2.0:
     is-callable "^1.1.4"
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
+
+escalade@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -4887,6 +4901,10 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+jwt-decode@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-2.2.0.tgz#7d86bd56679f58ce6a84704a657dd392bba81a79"
+
 killable@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npm.taobao.org/killable/download/killable-1.0.1.tgz#4c8ce441187a061c7474fb87ca08e2a638194892"
@@ -5564,11 +5582,9 @@ node-pre-gyp@^0.12.0:
     semver "^5.3.0"
     tar "^4"
 
-node-releases@^1.1.29:
-  version "1.1.32"
-  resolved "https://registry.npm.taobao.org/node-releases/download/node-releases-1.1.32.tgz?cache=0&sync_timestamp=1568636306900&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnode-releases%2Fdownload%2Fnode-releases-1.1.32.tgz#485b35c1bf9b4d8baa105d782f8ca731e518276e"
-  dependencies:
-    semver "^5.3.0"
+node-releases@^1.1.71:
+  version "1.1.72"
+  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.72.tgz#14802ab6b1039a79a0c7d662b610a5bbd76eacbe"
 
 node-sass@^4.9.0:
   version "4.12.0"
@@ -8086,9 +8102,13 @@ vm-browserify@^1.0.1:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
 
-vue-class-component@^7.0.1, vue-class-component@^7.0.2:
+vue-class-component@^7.0.1:
   version "7.1.0"
   resolved "https://registry.npm.taobao.org/vue-class-component/download/vue-class-component-7.1.0.tgz#b33efcb10e17236d684f70b1e96f1946ec793e87"
+
+vue-class-component@^7.1.0:
+  version "7.2.6"
+  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-7.2.6.tgz#8471e037b8e4762f5a464686e19e5afc708502e4"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
@@ -8150,6 +8170,10 @@ vue-template-es2015-compiler@^1.6.0, vue-template-es2015-compiler@^1.9.0:
 vue@^2.6.10:
   version "2.6.10"
   resolved "https://registry.npm.taobao.org/vue/download/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
+
+vuex-class@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/vuex-class/-/vuex-class-0.3.2.tgz#c7e96a076c1682137d4d23a8dcfdc63f220e17a8"
 
 vuex@^3.0.1:
   version "3.1.1"
